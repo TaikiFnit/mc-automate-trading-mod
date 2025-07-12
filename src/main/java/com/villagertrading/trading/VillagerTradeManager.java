@@ -138,7 +138,8 @@ public class VillagerTradeManager {
         
         // Give experience to the villager if configured
         if (VillagerTradingConfig.GIVE_EXPERIENCE.get()) {
-            villager.addExperience(offer.getXp() * actualTrades);
+            // Villager gains experience from successful trades
+            villager.setVillagerXp(villager.getVillagerXp() + offer.getXp() * actualTrades);
         }
         
         // Play trading sound

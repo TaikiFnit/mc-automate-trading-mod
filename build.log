@@ -1,0 +1,73 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/8.1.1/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+Daemon will be stopped at the end of the build 
+
+> Configure project :
+Java: 17.0.8.1, JVM: 17.0.8.1+1 (Eclipse Adoptium), Arch: amd64
+
+> Task :compileJava
+Setting up MCP environment
+Initializing steps
+Executing steps
+ > Running 'downloadManifest'
+ > Running 'downloadJson'
+ > Running 'downloadClient'
+ > Running 'downloadServer'
+ > Running 'extractServer'
+ > Running 'downloadClientMappings'
+ > Running 'mergeMappings'
+ > Running 'stripClient'
+ > Running 'stripServer'
+ > Running 'merge'
+ > Running 'listLibraries'
+ > Running 'rename'
+Stopping at requested step: /home/taikifnit/.gradle/caches/forge_gradle/mcp_repo/de/oceanlabs/mcp/mcp_config/1.20.1-20230612.114412/joined/rename/output.jar
+[21:49:04] [main/INFO]: Writing debug log file accesstransform.log
+[21:49:04] [main/INFO]: Access Transformer processor running version 8.2.1
+[21:49:04] [main/INFO]: Command line arguments [--inJar, /home/taikifnit/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.0/forge-1.20.1-47.1.0-injected.jar, --outJar, /home/taikifnit/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.0_mapped_official_1.20.1/forge-1.20.1-47.1.0_mapped_official_1.20.1.jar, --logFile, accesstransform.log, --atFile, /home/taikifnit/villager-trading-mod/build/_atJar_4/parent_at.cfg]
+[21:49:04] [main/INFO]: Reading from /home/taikifnit/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.0/forge-1.20.1-47.1.0-injected.jar
+[21:49:04] [main/INFO]: Writing to /home/taikifnit/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.0_mapped_official_1.20.1/forge-1.20.1-47.1.0_mapped_official_1.20.1.jar
+[21:49:04] [main/INFO]: Transformer file /home/taikifnit/villager-trading-mod/build/_atJar_4/parent_at.cfg
+[21:49:04] [main/WARN]: Found existing output jar /home/taikifnit/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.0_mapped_official_1.20.1/forge-1.20.1-47.1.0_mapped_official_1.20.1.jar, overwriting
+[21:49:09] [main/INFO]: JAR transformation complete /home/taikifnit/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.1.0_mapped_official_1.20.1/forge-1.20.1-47.1.0_mapped_official_1.20.1.jar
+Creating SRG -> MCP TSRG
+/home/taikifnit/villager-trading-mod/src/main/java/com/villagertrading/block/VillagerTradingStationBlock.java:17: error: cannot find symbol
+import net.minecraft.world.level.material.Material;
+                                         ^
+  symbol:   class Material
+  location: package net.minecraft.world.level.material
+/home/taikifnit/villager-trading-mod/src/main/java/com/villagertrading/trading/VillagerTradeManager.java:141: error: cannot find symbol
+            villager.addExperience(offer.getXp() * actualTrades);
+                    ^
+  symbol:   method addExperience(int)
+  location: variable villager of type Villager
+/home/taikifnit/villager-trading-mod/src/main/java/com/villagertrading/block/VillagerTradingStationBlock.java:29: error: cannot find symbol
+        super(Properties.of(Material.WOOD)
+                            ^
+  symbol:   variable Material
+  location: class VillagerTradingStationBlock
+/home/taikifnit/villager-trading-mod/src/main/java/com/villagertrading/integration/CreateIntegration.java:123: error: cannot find symbol
+            villager.addExperience(offer.getXp());
+                    ^
+  symbol:   method addExperience(int)
+  location: variable villager of type Villager
+Note: /home/taikifnit/villager-trading-mod/src/main/java/com/villagertrading/block/VillagerTradingStationBlock.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+4 errors
+
+> Task :compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':compileJava'.
+> Compilation failed; see the compiler error output for details.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 1m 4s
+1 actionable task: 1 executed

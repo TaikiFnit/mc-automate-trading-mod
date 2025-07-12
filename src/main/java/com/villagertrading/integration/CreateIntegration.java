@@ -120,7 +120,8 @@ public class CreateIntegration {
         
         // Give experience to villager if configured
         if (VillagerTradingConfig.GIVE_EXPERIENCE.get()) {
-            villager.addExperience(offer.getXp());
+            // Villager gains experience from successful trades
+            villager.setVillagerXp(villager.getVillagerXp() + offer.getXp());
         }
         
         // Update villager trading data
