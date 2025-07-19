@@ -101,6 +101,16 @@ public class VillagerTradeManager {
         ItemStack droppedItem = itemEntity.getItem();
         ItemStack requiredItem = offer.getCostA();
         
+        // Check if this is a food item that affects villager breeding
+        boolean isBreedingFood = isBreedingFood(droppedItem);
+        
+        // If it's breeding food, let the villager pick it up naturally for breeding
+        // instead of consuming it through trading
+        if (isBreedingFood && !villager.isTrading()) {
+            // Allow natural villager AI to handle food pickup for breeding
+            return false;
+        }
+        
         // Calculate how many trades we can perform
         int maxTrades = Math.min(
             droppedItem.getCount() / requiredItem.getCount(),
@@ -158,5 +168,13 @@ public class VillagerTradeManager {
         }
         
         return true;
+    }
+    
+    private boolean isBreedingFood(ItemStack itemStack) {
+        // Check if the item is food that villagers use for breeding
+        return itemStack.is(Items.BREAD) || 
+               itemStack.is(Items.POTATO) || 
+               itemStack.is(Items.CARROT) || 
+               itemStack.is(Items.BEETROOT);
     }
 }
